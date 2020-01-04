@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^3.4.3",
+    "material-components-web": "^4.0.0",
     "vue": "^2.6.10",
     "vue-mdc-adapter": "^0.18.2"
   },
@@ -20,8 +21,10 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.13.0",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {

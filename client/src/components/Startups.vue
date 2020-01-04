@@ -2,32 +2,20 @@
     <div class="startupContainer">
         <div v-for="item in startups" :key="item.name">
             <a @click="item.open=true" class="startupLogos-logo">
-                <img
-                    class="startupLogos-image startupLogos-btn"
-                    :src="item.colorLogo" 
-                    alt="hello"
-                />
+                <img class="startupLogos-image startupLogos-btn" :src="item.colorLogo" alt="hello" />
                 <div class="startupLogos-background"></div>
             </a>
             <mdc-dialog v-model="item.open" elevation="24dp">
                 <mdc-card-header :title="item.name" class="startupCard-header">
                     <div style="display: grid; grid-template-columns: 55px auto;">
-                        <mdc-card-action-icon 
-                          icon="close" 
-                          style="margin-right: 0 !important; color: #000 !important;" 
-                          @click="item.open=false"
-                        />
-                        <mdc-headline style="padding: 3px 0; margin: 0; color: #000 !important;">{{item.name}}</mdc-headline>
+                        <mdc-card-action-icon icon="close" class="startupCard-header__icon" @click="item.open=false" />
+                        <mdc-headline class="startupCard-header__title">{{item.name}}</mdc-headline>
                     </div>
                 </mdc-card-header>
                 <mdc-drawer-divider/>
                 <mdc-card-text class="startupCard-text">
                     <div class="startupCard-imagebox">
-                        <img
-                            class="startupLogos-image"
-                            :src="item.colorLogo" 
-                            alt="hello"
-                        />
+                        <img class="startupLogos-image" :src="item.colorLogo" alt="hello" />
                     </div>
                     {{ item.nonConfidentialSummary }}
                 </mdc-card-text>
@@ -72,11 +60,11 @@ export default {
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="scss">
+
 * {
   box-sizing: border-box;
 }
-
 
 a {
   text-decoration: none;
@@ -96,17 +84,16 @@ a {
 }
 
 .actionBtn-website {
-  border: 1.5px solid #2B324F !important;
-  color: #2B324F !important;
+  --mdc-theme-primary: #2B324F;
 }
 
 .actionBtn-contact {
-  border: 1.5px solid #D4AE41 !important;
   margin-right: 20px;
-  color: #D4AE41 !important;
+  --mdc-theme-primary: #D4AE41;
 }
 
 .actionBtn {
+  border: 1.5px solid !important;
   width: 120px !important;
   border-radius: 0 !important;
 }
@@ -150,6 +137,17 @@ a {
   padding-top: 0 !important;
   padding-left: 0 !important;
 }
+
+.startupCard-header__icon {
+  margin-right: 0 !important; 
+  color: #000 !important;
+}
+
+.startupCard-header__title {
+  padding: 3px 0; margin: 0; 
+  color: #000 !important;
+}
+
 .startupCard-text {
   min-height: 400px;
   padding: 12px 42px !important;
@@ -157,10 +155,6 @@ a {
 
 .startupCard-actions {
   padding: 12px 0px !important;
-}
-
-.startupLogos-container {
-  width: auto;
 }
 
 .startupLogos-logo {
@@ -182,6 +176,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  padding: 5px;
 }
 
 .startupLogos-btn {
@@ -205,7 +200,6 @@ a {
   width: 120%;
   height: 120%;
   z-index: -100;
-  /* opacity: 0; */
   transition-duration: 220ms;
   transition-timing-function: ease-out;
 }
